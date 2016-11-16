@@ -1,10 +1,6 @@
 ---
-# defaults file for ansible-role-ulimits_setup
+# defaults file for ansible-role-readahead_setup
 
-_ulimits_setup:
-  limits:
-    - domain: "*"
-      type: "soft"
-      item: "nofile"
-      value: 1024
+_readahead_setup:
+  read_ahead_kb: 4096
 
