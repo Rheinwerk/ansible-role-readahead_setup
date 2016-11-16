@@ -1,0 +1,10 @@
+---
+# defaults file for ansible-role-ulimits_setup
+
+_ulimits_setup:
+  limits:
+    - domain: "*"
+      type: "soft"
+      item: "nofile"
+      value: 1024
+
