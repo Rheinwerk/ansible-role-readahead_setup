@@ -1,7 +1,4 @@
 ---
-#
-# tasks file for ansible-role-readahead_setup
-#
 # vim:et:ts=2:ft=ansible
 
 - name: Enumerate disks
