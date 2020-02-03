@@ -6,12 +6,21 @@
   register: block_devices
   check_mode: no
 
-- name: Modify rc.local to increase read_ahead buffer for disks
-  lineinfile: dest=/etc/rc.local line='/bin/echo {{ _readahead_setup.read_ahead_kb }} > /sys/block/{{ item }}/queue/read_ahead_kb' insertbefore='exit 0'
-  create: yes
-  owner: root
-  group: root
-  mode: 0754
+- name: Ensure rc.local exists and exits cleanly
+  lineinfile:
+    dest: /etc/rc.local
+    line: 'exit 0'
+    regexp: 'exit 0'
+    insertafter: EOF
+    create: yes
+    owner: root
+    group: root
+    mode: 0754
+
+- lineinfile:
+    dest: /etc/rc.local
+    line: '/bin/echo {{ _readahead_setup.read_ahead_kb }} > /sys/block/{{ item }}/queue/read_ahead_kb'
+    insertbefore: 'exit 0'
   with_items: "{{ block_devices.stdout_lines }}"
 
 - name: Activate increased read_ahead buffer for disks now
