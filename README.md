@@ -4,7 +4,7 @@ Disk readahead settings
 This role can be used to set up modified readahead settings for
 (virtual machine) block devices.
 
-[![Build Status](https://travis-ci.org/Rheinwerk/ansible-role-readahead_setup.svg?branch=master)](https://travis-ci.org/Rheinwerk/ansible-role-readahead_setup)
+[![Build Status](https://github.com/Rheinwerk/ansible-role-readahead_setup/actions/workflows/ci.yml/badge.svg)](https://github.com/Rheinwerk/ansible-role-readahead_setup/actions/workflows/ci.yml)
 
 Requirements
 ------------
